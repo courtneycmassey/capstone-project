@@ -4,7 +4,7 @@ import firebase, { usersCollection } from '../../utilities/firebase';
 class LoginForm extends Component {
 
     state = {
-        register: true,
+        register: false,
         user: {
             email: '',
             password: ''
@@ -131,24 +131,24 @@ class LoginForm extends Component {
                         </input>
                     </div>
 
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-success">
                         { this.state.register ? 'Register' : "Sign in"}
                     </button>
                 </form>
                 <hr />
-                <button onClick={ ()=> this.handleLogout() }>
+                <button className="btn btn-danger" onClick={ ()=> this.handleLogout() }>
                     Logout
                 </button>
                 <hr/>
-                <button onClick={ ()=> this.handleGetUserInfo() }>
+                <button className="btn btn-outline-info" onClick={ ()=> this.handleGetUserInfo() }>
                     Ask about the User
                 </button>
                 <hr/>
-                <button onClick={ ()=> this.handleUpdateEmail() }>
+                <button className="btn btn-outline-info" onClick={ ()=> this.handleUpdateEmail() }>
                     Update User Email
                 </button>
                 <hr/>
-                <button onClick={ ()=> this.handleUpdateProfile() }>
+                <button className="btn btn-outline-info" onClick={ ()=> this.handleUpdateProfile() }>
                     Update User Profile
                 </button>
             </>

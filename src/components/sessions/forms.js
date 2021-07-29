@@ -22,16 +22,16 @@ class Form extends Component {
 
 
         // ADD TO THE DATABASE
-        // sessionsCollection.add({
-        //     ...this.state,
-        //     votes: parseInt(this.state.votes),
-        //     answered: this.state.available === 'true' ? true : false,
-        //     createdAt: firebaseTimestamp()
-        // }).then ( data => {
-        //     console.log(data)
-        // }).catch(e=>{
-        //     console.log(e)
-        // });
+        sessionsCollection.add({
+            ...this.state,
+            votes: parseInt(this.state.votes),
+            answered: this.state.available === 'true' ? true : false,
+            createdAt: firebaseTimestamp()
+        }).then ( data => {
+            console.log(data)
+        }).catch(e=>{
+            console.log(e)
+        });
     }
 
     changeHandler = (e) => {
