@@ -17,7 +17,7 @@ class Sessions extends Component {
         .then( snapshot => {
 
             const sessions = firebaseLooper(snapshot);
-            console.log(sessions)
+            // console.log(sessions)
             this.setState({
                 sessions
             });

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 
 const firebaseConfig = {
@@ -13,6 +14,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.auth();
 
 const db = firebase.firestore();
 
@@ -21,6 +23,7 @@ export const firebaseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 // could I loop through each collection and make a const for each session?
 // ^^ potential way to handle the menu of session options?
 export const sessionsCollection = db.collection('sessions');
+export const usersCollection = db.collection('users');
 export const siteRef = db.doc('site/business');
 export const employeeRef = db.collection('site').doc('employees').collection('admins')
 

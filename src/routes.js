@@ -6,6 +6,7 @@ import Home from './components/index';
 import Header from './components/header';
 import Footer from './components/footer';
 import Sessions from './components/sessions';
+import Login from './components/user/login';
 
 const Routes = () => (
     <BrowserRouter>
@@ -14,6 +15,7 @@ const Routes = () => (
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/sessions" component={Sessions}/>
+                <Route exact path="/login" component={Login}/>
             </Switch>
         </main>
     </BrowserRouter>
