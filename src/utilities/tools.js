@@ -1,5 +1,6 @@
 
 
+// returns the data from each document in a collection
 export const firebaseLooper = (snapshot) => {
 
     let data = [];
