@@ -1,15 +1,29 @@
 import Questions from './components/questions';
+import TeacherSelection from './components/teacherSelection';
+import CourseSelection from './components/courseSelection';
 import React, { useEffect, useState } from "react";
 
 const App = () => {
 
-    const [selectedTeacher, setSelectedTeacher] = useState('whN5CXz6Dx6PpFv41IrB')
-    const [selectedClass, setSelectedClass] = useState('qwQoYGX7wQrGyGBj9JmV')
+    const [selectedTeacher, setSelectedTeacher] = useState('')
+    const [selectedClass, setSelectedClass] = useState('')
 
     // const teacher_id = 'whN5CXz6Dx6PpFv41IrB';
     // const class_id = 'qwQoYGX7wQrGyGBj9JmV';
 
     // /teachers/whN5CXz6Dx6PpFv41IrB/classes/hwVhXCHYiJnV0aqi0M54
+
+    const chooseTeacher = (teacher_id) => {
+        // console.log('teacher_id:' , teacher_id);
+        setSelectedTeacher(teacher_id);
+        // console.log('selectedTeacher: ', selectedTeacher);
+    };
+
+    const chooseClass = (class_id) => {
+        // console.log('teacher_id:' , teacher_id);
+        setSelectedClass(class_id);
+        // console.log('selectedTeacher: ', selectedTeacher);
+    };    
 
     return (
         <div>
@@ -17,12 +31,17 @@ const App = () => {
                 Question Board
             </h2>
             <hr/>
-            <h3>ClassList component will go here</h3>
+            <TeacherSelection 
+                chooseTeacher={chooseTeacher}
+            />
+            <CourseSelection
+                chooseClass={chooseClass} 
+                selectedTeacher={selectedTeacher}   
+            />
             <hr/>
-            <h3>Questions component will go here</h3>
             <Questions
-                teacherId={selectedTeacher}
-                classId={selectedClass}/>
+                teacher_id={selectedTeacher}
+                class_id={selectedClass}/>
             <hr/>
             <h3>QuestionForm component will go here</h3>
             <hr/>

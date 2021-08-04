@@ -27,31 +27,34 @@ function useQuestions(teacher_id, class_id) {
     // const class_id = 'qwQoYGX7wQrGyGBj9JmV';
 
     useEffect ( () => {
-        teacherNames
-        .doc(teacher_id)
-        .collection('classes')
-        .doc(class_id)
-        .collection('questions')
-        .onSnapshot((snapshot) => {
-            const newQuestions = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }))
-        setQuestions(newQuestions)
-        })
+        if (teacher_id !== '' && class_id !== '') {
+            teacherNames
+            .doc(teacher_id)
+            .collection('classes')
+            .doc(class_id)
+            .collection('questions')
+            .orderBy('votes', 'desc')
+            .onSnapshot((snapshot) => {
+                const newQuestions = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+            setQuestions(newQuestions)
+            })
+        }
     }, [])
 
     return questions
 }
 
 
-const Questions = ( {teacherId, classId} ) => {
+const Questions = ( {teacher_id, class_id} ) => {
 
     // const teacher_id = 'whN5CXz6Dx6PpFv41IrB';
     // const class_id = 'qwQoYGX7wQrGyGBj9JmV';
 
     const teachers = useTeachers()
-    const questions = useQuestions(teacherId, classId)
+    const questions = useQuestions(teacher_id, class_id)
 
     // const [selectedTeacher, setSelectedTeacher] = useState('');
     // const [selectedClass, setSelectedClass] = useState('')
@@ -59,7 +62,7 @@ const Questions = ( {teacherId, classId} ) => {
 
     return (
         <div>
-            Current Questions:
+            <h2>Questions Component</h2>
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
@@ -75,25 +78,12 @@ const Questions = ( {teacherId, classId} ) => {
                         <th>{question.question}</th> 
                         <th>{question.was_answered.toString()}</th>
                         <th>{question.votes}</th>
-                        <th>button goes here</th>
+                        <th>button will go here</th>
                     </tr>)}
                 </tbody>
             </table>
-            <h4>List of Questions for Testing:</h4>
-            <ol>
-                {questions.map((question) => 
-                <li key={question.id}>
-                    {question.question} votes: {question.votes}
-                </li>)}
-            </ol>
-            <h4>Teacher List for Firestore TESTING:</h4>
-            <ol>
-                {teachers.map((teacher) => 
-                <li key={teacher.id}>
-                    {teacher.teacher_name}
-                </li>
-                )}
-            </ol>
+            <p>teacher_id@ Question: {teacher_id}</p>
+            <p>class_id @ Question: {class_id}</p>
             <h4>Maybe AnsweredQuestions should go here because then they live in the Questions Componenet</h4>
         </div>
 
