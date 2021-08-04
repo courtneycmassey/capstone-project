@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { firebaseLooper } from '../utilities/tools';
+// import { firebaseLooper } from '../utilities/tools';
 import { teacherNames } from '../utilities/firebase';
 
-// define document id's here ... use state so they can change on select
 
 function useTeachers() {
     const [teachers, setTeachers] = useState([])
@@ -21,11 +20,11 @@ function useTeachers() {
     return teachers
 }
 
-function useQuestions() {
+function useQuestions(teacher_id, class_id) {
     const [questions, setQuestions] = useState([])
 
-    const teacher_id = 'whN5CXz6Dx6PpFv41IrB';
-    const class_id = 'qwQoYGX7wQrGyGBj9JmV';
+    // const teacher_id = 'whN5CXz6Dx6PpFv41IrB';
+    // const class_id = 'qwQoYGX7wQrGyGBj9JmV';
 
     useEffect ( () => {
         teacherNames
@@ -46,18 +45,16 @@ function useQuestions() {
 }
 
 
-const Questions = () => {
+const Questions = ( {teacherId, classId} ) => {
+
+    // const teacher_id = 'whN5CXz6Dx6PpFv41IrB';
+    // const class_id = 'qwQoYGX7wQrGyGBj9JmV';
 
     const teachers = useTeachers()
-    const questions = useQuestions()
+    const questions = useQuestions(teacherId, classId)
 
-    const [selectedTeacher, setSelectedTeacher] = useState('');
-    const [selectedClass, setSelectedClass] = useState('')
-
-    // const [selectedClass, setSelectedClass] = useState({
-    //     teacher_id: 'whN5CXz6Dx6PpFv41IrB',
-    //     class_id: 'qwQoYGX7wQrGyGBj9JmV'
-    // });
+    // const [selectedTeacher, setSelectedTeacher] = useState('');
+    // const [selectedClass, setSelectedClass] = useState('')
 
 
     return (
