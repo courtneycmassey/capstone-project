@@ -1,37 +1,18 @@
 import React, { useEffect, useState } from "react";
-// import { firebaseLooper } from '../utilities/tools';
 import { teacherNames } from '../utilities/firebase';
 
 
-function useTeachers() {
-    const [teachers, setTeachers] = useState([])
+function useQuestions(selectedTeacher, selectedClass) {
 
-    useEffect( () => {
-        teacherNames.onSnapshot((snapshot) => {
-            const newTeachers = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }))
-
-        setTeachers(newTeachers)
-    })
-    }, [])
-
-    return teachers
-}
-
-function useQuestions(teacher_id, class_id) {
     const [questions, setQuestions] = useState([])
 
-    // const teacher_id = 'whN5CXz6Dx6PpFv41IrB';
-    // const class_id = 'qwQoYGX7wQrGyGBj9JmV';
-
     useEffect ( () => {
-        if (teacher_id !== '' && class_id !== '') {
+        // TO DO: unsubscribe callback (from 17:30 in Time Tutorial)
+        if (selectedTeacher !== '' && selectedClass !== '') {
             teacherNames
-            .doc(teacher_id)
+            .doc(selectedTeacher)
             .collection('classes')
-            .doc(class_id)
+            .doc(selectedClass)
             .collection('questions')
             .orderBy('votes', 'desc')
             .onSnapshot((snapshot) => {
@@ -42,23 +23,15 @@ function useQuestions(teacher_id, class_id) {
             setQuestions(newQuestions)
             })
         }
-    }, [])
+    }, [selectedTeacher, selectedClass])
 
     return questions
 }
 
 
-const Questions = ( {teacher_id, class_id} ) => {
+const Questions = ( {selectedTeacher, selectedClass} ) => {
 
-    // const teacher_id = 'whN5CXz6Dx6PpFv41IrB';
-    // const class_id = 'qwQoYGX7wQrGyGBj9JmV';
-
-    const teachers = useTeachers()
-    const questions = useQuestions(teacher_id, class_id)
-
-    // const [selectedTeacher, setSelectedTeacher] = useState('');
-    // const [selectedClass, setSelectedClass] = useState('')
-
+    const questions = useQuestions(selectedTeacher, selectedClass)
 
     return (
         <div>
@@ -82,8 +55,8 @@ const Questions = ( {teacher_id, class_id} ) => {
                     </tr>)}
                 </tbody>
             </table>
-            <p>teacher_id@ Question: {teacher_id}</p>
-            <p>class_id @ Question: {class_id}</p>
+            <p>teacher_id@ Question: {selectedTeacher}</p>
+            <p>class_id @ Question: {selectedClass}</p>
             <h4>Maybe AnsweredQuestions should go here because then they live in the Questions Componenet</h4>
         </div>
 

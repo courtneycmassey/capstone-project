@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { teacherNames } from '../utilities/firebase';
-import firebase from 'firebase/app';
 
 
 function useClasses(selectedTeacher) {
@@ -9,14 +8,12 @@ function useClasses(selectedTeacher) {
     console.log({selectedTeacher})
 
     useEffect ( () => {
-        debugger;
         if (selectedTeacher !== '') {
             
             teacherNames
             .doc(selectedTeacher)
             .collection('classes')
             .onSnapshot((snapshot) => {
-                // console.log(snapshot)
                 const newClasses = snapshot.docs.map((doc) => ({
                     id: doc.id,
                     ...doc.data()
@@ -31,10 +28,6 @@ function useClasses(selectedTeacher) {
 
 
 const CourseSelection = ( { chooseClass, selectedTeacher } ) => {
-    
-    // const [courses, setCourses] = useState([])
-
-    // const selectTeacher = 
     
     const courses = useClasses(selectedTeacher);
 

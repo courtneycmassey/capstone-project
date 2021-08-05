@@ -2,9 +2,14 @@ import React from 'react';
 
 const QuestionForm = () => {
     return (
-        <div>
-            <h2>QuestionForm Component</h2>
-        </div>
+        <form>
+            <h2>Ask a Question</h2>
+            <div>
+                <label>Question:</label>
+                <input type="text" />
+            </div>
+            <button>Submit Question</button>
+        </form>
     );
 };
 
