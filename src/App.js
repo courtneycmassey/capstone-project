@@ -1,6 +1,7 @@
 import Questions from './components/questions';
 import TeacherSelection from './components/teacherSelection';
 import CourseSelection from './components/courseSelection';
+import QuestionForm from './components/questionForm';
 import React, { useEffect, useState } from "react";
 
 const App = () => {
@@ -43,7 +44,7 @@ const App = () => {
                 teacher_id={selectedTeacher}
                 class_id={selectedClass}/>
             <hr/>
-            <h3>QuestionForm component will go here</h3>
+            <QuestionForm />
             <hr/>
             <h3>AnsweredQuestions component will go here</h3>
             <hr/>
