@@ -48,7 +48,7 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
                     value={studentName} 
                     onChange={e => setStudentName(e.currentTarget.value)} />
             </div>
-            <button>Submit Question</button>
+            <button type="submit" className="btn btn-primary">Submit Question</button>
         </form>
     );
 };

@@ -36,6 +36,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
     return (
         <div>
             <h2>Questions Component</h2>
+            <h3>Current Questions:</h3>
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
@@ -51,13 +52,17 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                         <th>{question.question}</th> 
                         <th>{question.was_answered.toString()}</th>
                         <th>{question.votes}</th>
-                        <th>button will go here</th>
+                        <th>
+                            <button 
+                                className="btn btn-secondary">
+                                    Upvote
+                            </button></th>
                     </tr>)}
                 </tbody>
             </table>
-            <p>teacher_id@ Question: {selectedTeacher}</p>
-            <p>class_id @ Question: {selectedClass}</p>
-            <h4>Maybe AnsweredQuestions should go here because then they live in the Questions Componenet</h4>
+            {/* <p>teacher_id@ Question: {selectedTeacher}</p> */}
+            {/* <p>class_id @ Question: {selectedClass}</p> */}
+            <h3>Answered Questions:</h3>
         </div>
 
     );

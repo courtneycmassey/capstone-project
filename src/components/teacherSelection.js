@@ -31,7 +31,7 @@ const TeacherSelection = ( {chooseTeacher} ) => {
             <select onChange={e => chooseTeacher(e.currentTarget.value)}>
                 {teachers.map((teacher) => 
                 <option key={teacher.id} value={teacher.id}>
-                    {teacher.teacher_name} {teacher.id}
+                    {teacher.teacher_name}
                 </option>
                 )}
             </select>
