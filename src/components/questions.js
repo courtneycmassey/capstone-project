@@ -7,7 +7,7 @@ function useQuestions(selectedTeacher, selectedClass) {
     const [questions, setQuestions] = useState([])
 
     useEffect ( () => {
-        // TO DO: unsubscribe callback (from 17:30 in Time Tutorial)
+        // TO DO: unsubscribe callback (from 17:30 and 19:30 in Time Tutorial)
         if (selectedTeacher !== '' && selectedClass !== '') {
             teacherNames
             .doc(selectedTeacher)

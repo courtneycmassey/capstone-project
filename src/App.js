@@ -35,7 +35,9 @@ const App = () => {
                 selectedTeacher={selectedTeacher}
                 selectedClass={selectedClass}/>
             <hr/>
-            <QuestionForm />
+            <QuestionForm 
+                selectedTeacher={selectedTeacher}
+                selectedClass={selectedClass}/>
             <hr/>
             <h3>AnsweredQuestions component will go here</h3>
             <hr/>
