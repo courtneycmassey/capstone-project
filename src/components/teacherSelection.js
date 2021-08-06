@@ -19,14 +19,13 @@ function useTeachers() {
     return teachers
 }
 
-
+//TO DO: how to select top item from menu without selecting another item first
 const TeacherSelection = ( {chooseTeacher} ) => {
     
     const teachers = useTeachers()
 
     return (
         <div>
-            <h2>Teacher Selection Component</h2>
             <label>Select Teacher:</label>
             <select onChange={e => chooseTeacher(e.currentTarget.value)}>
                 {teachers.map((teacher) => 
