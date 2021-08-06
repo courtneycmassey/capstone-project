@@ -29,11 +29,11 @@ function useQuestions(selectedTeacher, selectedClass) {
 }
 
 
-const Questions = ( {selectedTeacher, selectedClass} ) => {
+const TeacherView = ( {selectedTeacher, selectedClass} ) => {
 
     const questions = useQuestions(selectedTeacher, selectedClass)
 
-    const addVote = (selectedQuestion, voteCount) => {
+    const markAnswered = (selectedQuestion) => {
         
         teacherNames
             .doc(selectedTeacher)
@@ -42,21 +42,20 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
             .collection('questions')
             .doc(selectedQuestion)
             .update({
-                votes: voteCount + 1,
+                was_answered: true,
             })
     }
 
     return (
         <div>
-            <h2>Questions Component</h2>
             <h3>Current Questions:</h3>
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
-                        <th>question</th>
-                        <th>answered (T/F)</th>
-                        <th>votes</th>
-                        <th>upvote button</th>
+                        <th>QUESTION</th>
+                        <th>STUDENT</th>
+                        <th>VOTES</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,14 +64,14 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                             return(
                                 <tr key={question.id}>
                                     <th>{question.question}</th> 
-                                    <th>{question.was_answered.toString()}</th>
+                                    <th>{question.student_name}</th>
                                     <th>{question.votes}</th>
                                     <th>
                                         <button 
                                             key={question.id}
-                                            onClick={() => {addVote(question.id, question.votes)}}
+                                            onClick={() => {markAnswered(question.id)}}
                                             className="btn btn-success">
-                                                Upvote
+                                                Answered
                                         </button></th>
                                 </tr>
                             )}
@@ -83,8 +82,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
-                        <th>question</th>
-                        <th>answered (T/F)</th>
+                        <th>QUESTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -93,7 +91,6 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                             return(
                                 <tr key={question.id}>
                                     <th>{question.question}</th> 
-                                    <th>{question.was_answered.toString()}</th>
                                 </tr>
                             )}
                     })}
@@ -103,4 +100,4 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
     );
 };
 
-export default Questions;
+export default TeacherView;

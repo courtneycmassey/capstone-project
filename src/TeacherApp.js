@@ -1,10 +1,9 @@
-import Questions from './components/questions';
+import TeacherView from './components/teacherView';
 import TeacherSelection from './components/teacherSelection';
 import CourseSelection from './components/courseSelection';
-import QuestionForm from './components/questionForm';
 import React, { useEffect, useState } from "react";
 
-const App = () => {
+const TeacherApp = () => {
 
     const [selectedTeacher, setSelectedTeacher] = useState('')
     const [selectedClass, setSelectedClass] = useState('')
@@ -20,7 +19,7 @@ const App = () => {
     return (
         <div>
             <h2>
-                Question Board
+                Teacher View
             </h2>
             <hr/>
             <TeacherSelection 
@@ -31,11 +30,7 @@ const App = () => {
                 selectedTeacher={selectedTeacher}   
             />
             <hr/>
-            <Questions
-                selectedTeacher={selectedTeacher}
-                selectedClass={selectedClass}/>
-            <hr/>
-            <QuestionForm 
+            <TeacherView
                 selectedTeacher={selectedTeacher}
                 selectedClass={selectedClass}/>
             <hr/>
@@ -44,4 +39,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default TeacherApp;

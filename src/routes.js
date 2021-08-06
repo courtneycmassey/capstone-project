@@ -7,7 +7,8 @@ import Header from './components/header';
 import Footer from './components/footer';
 // import Sessions from './components/sessions';
 import Login from './components/user/login';
-import App from './App';
+import TeacherApp from './TeacherApp'
+import StudentApp from './StudentApp';
 import ClassForm from './components/classForm';
 
 const Routes = () => (
@@ -17,7 +18,8 @@ const Routes = () => (
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/class_form" component={ClassForm}/>
-                <Route exact path="/question_board" component={App}/>
+                <Route exact path="/teacher_view" component={TeacherApp}/>
+                <Route exact path="/student_view" component={StudentApp}/>
                 <Route exact path="/login" component={Login}/>
             </Switch>
         </main>
