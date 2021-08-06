@@ -18,6 +18,8 @@ firebase.auth();
 
 const db = firebase.firestore();
 
+export const teacherNames = db.collection('teachers');
+
 export const firebaseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 
 // could I loop through each collection and make a const for each session?
@@ -27,7 +29,7 @@ export const usersCollection = db.collection('users');
 export const siteRef = db.doc('site/business');
 export const employeeRef = db.collection('site').doc('employees').collection('admins')
 
-export const teacherNames = db.collection('teachers');
+
 export const classesCollection = db.collection('classes');
 // /teachers/whN5CXz6Dx6PpFv41IrB/classes/qwQoYGX7wQrGyGBj9JmV
 export const specificQuestionsCollection = db.collection('teachers').doc('whN5CXz6Dx6PpFv41IrB').collection('classes').doc('qwQoYGX7wQrGyGBj9JmV').collection('questions');
