@@ -33,21 +33,18 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
 
     const questions = useQuestions(selectedTeacher, selectedClass)
 
-    // TO DO: votes keeps going up for ALL questions
-    const onSubmit = (question_id, question_votes) => {
+    const addVote = (selectedQuestion, voteCount) => {
         
         teacherNames
             .doc(selectedTeacher)
             .collection('classes')
             .doc(selectedClass)
             .collection('questions')
-            .doc(question_id)
+            .doc(selectedQuestion)
             .update({
-                votes: question_votes + 1,
+                votes: voteCount + 1,
             })
     }
-
-    // function addVote()
 
     return (
         <div>
@@ -66,28 +63,22 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                     {questions.map((question) => {
                         if (question.was_answered === false) {
                             return(
-                            <tr key={question.id}>
-                                <th>{question.question}</th> 
-                                <th>{question.was_answered.toString()}</th>
-                                <th>{question.votes}</th>
-                                <th>
-                                    <button 
-                                        key={question.id}
-                                        // value={question.votes}
-                                        value={question.id}
-                                        // onClick={e => addVote(e.currentTarget.value)}
-                                        // onClick={onSubmit(question.id, question.votes)}
-                                        className="btn btn-secondary">
-                                            Upvote
-                                    </button></th>
-                            </tr>)
-                        }
-                    }
-                    )}
+                                <tr key={question.id}>
+                                    <th>{question.question}</th> 
+                                    <th>{question.was_answered.toString()}</th>
+                                    <th>{question.votes}</th>
+                                    <th>
+                                        <button 
+                                            key={question.id}
+                                            onClick={() => {addVote(question.id, question.votes)}}
+                                            className="btn btn-secondary">
+                                                Upvote
+                                        </button></th>
+                                </tr>
+                            )}
+                    })}
                 </tbody>
             </table>
-            {/* <p>teacher_id@ Question: {selectedTeacher}</p> */}
-            {/* <p>class_id @ Question: {selectedClass}</p> */}
             <h3>Answered Questions:</h3>
             <table className="table table-dark table-hover">
                 <thead>
@@ -100,17 +91,15 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                     {questions.map((question) => {
                         if (question.was_answered === true) {
                             return(
-                            <tr key={question.id}>
-                                <th>{question.question}</th> 
-                                <th>{question.was_answered.toString()}</th>
-                            </tr>)
-                        }
-                    }
-                    )}
+                                <tr key={question.id}>
+                                    <th>{question.question}</th> 
+                                    <th>{question.was_answered.toString()}</th>
+                                </tr>
+                            )}
+                    })}
                 </tbody>
             </table>
         </div>
-
     );
 };
 
