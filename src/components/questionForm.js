@@ -15,7 +15,8 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
         .collection('classes')
         .doc(selectedClass)
         .collection('questions')
-        .add({
+        .doc()
+        .set({
             question,
             was_answered: false,
             votes: 0,
