@@ -54,6 +54,17 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
             })
     }
 
+    const deleteQuestion = (selectedQuestion) => {
+
+        teacherNames
+            .doc(selectedTeacher)
+            .collection('classes')
+            .doc(selectedClass)
+            .collection('questions')
+            .doc(selectedQuestion)
+            .delete()
+    }
+
     return (
         <div>
             <h3>Current Questions:</h3>
@@ -72,6 +83,7 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
                         <th>STUDENT</th>
                         <th>VOTES</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,6 +100,13 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
                                             onClick={() => {markAnswered(question.id)}}
                                             className="btn btn-success">
                                                 Answered
+                                        </button></th>
+                                    <th>
+                                        <button
+                                            key={question.id}
+                                            onClick={() => {deleteQuestion(question.id)}}
+                                            className="btn btn-danger"> 🗑
+
                                         </button></th>
                                 </tr>
                             )}
