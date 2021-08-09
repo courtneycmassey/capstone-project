@@ -21,7 +21,7 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
             votes: 0,
             //TO DO: link student name to authenticated user
             student_name: studentName,
-            // submit_time: Date.now()
+            submit_time: new Date()
         })
         .then(() => {
             setQuestion('')

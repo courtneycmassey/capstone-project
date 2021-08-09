@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { teacherNames } from '../utilities/firebase';
 
+const SORT_OPTIONS = {
+    'TIME_ASC': {column: 'submit_time', direction: 'asc'},
+    'TIME_DESC': {column: 'submit_time', direction: 'desc'},
+    'VOTES_DESC': {column: 'votes', direction: 'desc'},
+}
 
-function useQuestions(selectedTeacher, selectedClass) {
+function useQuestions(selectedTeacher, selectedClass, sortBy='VOTES_DESC') {
 
     const [questions, setQuestions] = useState([])
 
     useEffect ( () => {
-        // TO DO: unsubscribe callback (from 17:30 and 19:30 in Time Tutorial)
+        // TO DO: understand unsubscribe callback (from 19:30 and 20:30 in Time Tutorial)
         if (selectedTeacher !== '' && selectedClass !== '') {
-            teacherNames
+            const unsubscribe = teacherNames
             .doc(selectedTeacher)
             .collection('classes')
             .doc(selectedClass)
             .collection('questions')
-            .orderBy('votes', 'desc')
+            .orderBy(SORT_OPTIONS[sortBy].column, SORT_OPTIONS[sortBy].direction)
             .onSnapshot((snapshot) => {
                 const newQuestions = snapshot.docs.map((doc) => ({
                     id: doc.id,
@@ -22,8 +27,9 @@ function useQuestions(selectedTeacher, selectedClass) {
                 }))
             setQuestions(newQuestions)
             })
+            return () => unsubscribe()
         }
-    }, [selectedTeacher, selectedClass])
+    }, [selectedTeacher, selectedClass, sortBy])
 
     return questions
 }
@@ -31,7 +37,9 @@ function useQuestions(selectedTeacher, selectedClass) {
 
 const Questions = ( {selectedTeacher, selectedClass} ) => {
 
-    const questions = useQuestions(selectedTeacher, selectedClass)
+    const [sortBy, setSortBy] = useState('VOTES_DESC')
+    
+    const questions = useQuestions(selectedTeacher, selectedClass, sortBy)
 
     const addVote = (selectedQuestion, voteCount) => {
         
@@ -50,6 +58,14 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
         <div>
             <h2>Questions Component</h2>
             <h3>Current Questions:</h3>
+            <div>
+                <label>Sort By:</label>{' '}
+                <select value={sortBy} onChange={e => setSortBy(e.currentTarget.value)}>
+                    <option value="VOTES_DESC">Votes</option>
+                    <option value="TIME_DESC">Newest Question First</option>
+                    <option value="TIME_ASC">Oldest Question First</option>
+                </select>
+            </div>
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
