@@ -7,7 +7,6 @@ const ClassForm = () => {
     const [selectedTeacher, setSelectedTeacher] = useState('')
     const [courseTitle, setCourseTitle] = useState('')
     const [courseSection, setCourseSection] = useState('')
-    // TO DO: currently storing as string type YYYY-MM-DD
     const [courseDate, setCourseDate] = useState('')
 
     const chooseTeacher = (teacher_id) => {
@@ -19,16 +18,16 @@ const ClassForm = () => {
     function addCourse(e) {
         e.preventDefault()
 
+        const splitDate = courseDate.split("-");
+        const formattedDate = new Date( splitDate[0], splitDate[1] - 1, splitDate[2]);
+
         teacherNames
         .doc(selectedTeacher)
         .collection('classes')
         .add({
             course: courseTitle,
             section: courseSection,
-            date: courseDate,
-            // {collection: "questions"}
-            // collection: [ {questions: ''}]
-            // collection: {questions: ''}
+            date: formattedDate
         })
         .then(() => {
             //can I capture the new course_id here???
@@ -63,8 +62,7 @@ const ClassForm = () => {
                 </div>
                 <div>
                     <label>Date:</label>
-                    <input 
-                        // TO DO: currently storing as string type YYYY-MM-DD
+                    <input
                         type="date"
                         value={courseDate}
                         onChange={e => setCourseDate(e.currentTarget.value)} />
