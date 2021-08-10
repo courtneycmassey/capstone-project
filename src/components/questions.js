@@ -56,7 +56,6 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
 
     return (
         <div>
-            <h2>Questions Component</h2>
             <h3>Current Questions:</h3>
             <div>
                 <label>Sort By:</label>{' '}

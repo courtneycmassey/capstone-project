@@ -69,9 +69,6 @@ const ClassForm = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Add Class</button>
             </form>
-            
-            
-            <p>Teacher is: {selectedTeacher}</p>
             <hr/>
             <h2>Delete Course</h2>
             <hr/>

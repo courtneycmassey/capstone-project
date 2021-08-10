@@ -33,9 +33,9 @@ const CourseSelection = ( { chooseClass, selectedTeacher } ) => {
 
     return (
         <div>
-            <h2>Course Selection Component</h2>
             <label>Select Course:</label>
             <select onChange={e => chooseClass(e.currentTarget.value)}>
+                <option value=""></option>
                 {courses.map((course) => 
                     <option key={course.id} value={course.id}>
                     {course.course} | section: {course.section} | {new Date(course.date.seconds * 1000).toLocaleDateString("en-US")} 

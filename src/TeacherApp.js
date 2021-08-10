@@ -24,6 +24,7 @@ const TeacherApp = () => {
             <hr/>
             <TeacherSelection 
                 chooseTeacher={chooseTeacher}
+                selectedTeacher={selectedTeacher}
             />
             <CourseSelection
                 chooseClass={chooseClass} 

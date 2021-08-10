@@ -32,7 +32,7 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
     
     return (
         <form onSubmit={onSubmit}>
-            <h2>Ask a Question</h2>
+            <h3>Ask a Question</h3>
             <div>
                 <label>Question:</label>
                 <input 
