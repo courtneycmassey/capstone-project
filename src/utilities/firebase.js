@@ -18,22 +18,10 @@ firebase.auth();
 
 const db = firebase.firestore();
 
+export const teacherNames = db.collection('teachers');
+export const usersCollection = db.collection('users');
+
 export const firebaseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-// could I loop through each collection and make a const for each session?
-// ^^ potential way to handle the menu of session options?
-export const sessionsCollection = db.collection('sessions');
-export const usersCollection = db.collection('users');
-export const siteRef = db.doc('site/business');
-export const employeeRef = db.collection('site').doc('employees').collection('admins')
-
-
-// db.collection('sessions').get().then( snapshot => {
-//     snapshot.forEach((doc)=>{
-//         console.log(doc.data());
-//     });
-// }).catch ( e => {
-//     console.log(e);
-// });
 
 export default firebase;
