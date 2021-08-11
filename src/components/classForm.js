@@ -50,6 +50,7 @@ const ClassForm = () => {
                     <label>Course Title:</label>
                     <input 
                         type="text"
+                        placeholder="Course Title"
                         value={courseTitle}
                         onChange={e => setCourseTitle(e.currentTarget.value)} />
                 </div>
@@ -57,6 +58,7 @@ const ClassForm = () => {
                     <label>Course Section:</label>
                     <input 
                         type="text"
+                        placeholder="Course Section"
                         value={courseSection}
                         onChange={e => setCourseSection(e.currentTarget.value)} />
                 </div>
