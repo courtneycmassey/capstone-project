@@ -12,9 +12,10 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Home</h1>
-            <h2>Welcome Home, {currentUser.displayName}</h2>
-            <button onClick={() => app.auth().signOut()}>Sign Out</button>
+            <h3>Home</h3>
+            <p>You are signed in as {currentUser.email}</p>
+            <p>Your userId is: {currentUser.uid}</p>
+            <button className="btn btn-danger" onClick={() => app.auth().signOut()}>Sign Out</button>
         </div>
     );
 };

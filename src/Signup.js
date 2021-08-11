@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app, { usersCollection } from './utilities/firebase.js';
 
@@ -50,7 +50,7 @@ const SignUp = ({ history }) => {
                     type="password" 
                     placeholder="password" />
             </label>
-            <button type="submit">Sign Up</button>
+            <button className="btn btn-info" type="submit">Sign Up</button>
             </form>
         </div>
     );
