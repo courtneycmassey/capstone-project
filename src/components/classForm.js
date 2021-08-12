@@ -31,7 +31,6 @@ const ClassForm = () => {
         })
         .then(() => {
             //can I capture the new course_id here???
-            // addQuestionsCollection()
             setCourseTitle('')
             setCourseSection('')
             setCourseDate('')
