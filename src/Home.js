@@ -6,20 +6,20 @@ import firebase, { usersCollection } from './utilities/firebase';
 
 const Home = () => {
 
-    const {currentUser} = useContext(AuthContext);
+    const {currentUser, userDetails} = useContext(AuthContext);
 
-    const [userDetails, setUserDetails] = useState('')
+    // const [userDetails, setUserDetails] = useState('')
 
-    useEffect(() => {
-        usersCollection
-        .doc(currentUser.uid)
-        .get()
-        .then(snapshot => {
-            setUserDetails(snapshot.data())
-            console.log('Home Component Mounted');
-            console.log(currentUser);
-        })
-    }, [currentUser]);
+    // useEffect(() => {
+    //     usersCollection
+    //     .doc(currentUser.uid)
+    //     .get()
+    //     .then(snapshot => {
+    //         setUserDetails(snapshot.data())
+    //         console.log('Home Component Mounted');
+    //         console.log(currentUser);
+    //     })
+    // }, [currentUser]);
     
 
     return (
