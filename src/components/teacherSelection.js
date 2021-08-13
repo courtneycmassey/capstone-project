@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { teacherNames, usersCollection } from '../utilities/firebase';
+import { usersCollection } from '../utilities/firebase';
 import "./teacherSelection.css"
 
 
@@ -23,25 +23,6 @@ function useTeachers() {
     return teachers
 };
 
-
-//original
-// function useTeachers() {
-//     const [teachers, setTeachers] = useState([])
-
-//     useEffect( () => {
-        
-//         teacherNames.onSnapshot((snapshot) => {
-//             const newTeachers = snapshot.docs.map((doc) => ({
-//                 id: doc.id,
-//                 ...doc.data()
-//             }))
-
-//         setTeachers(newTeachers)
-//     })
-//     }, [])
-
-//     return teachers
-// }
 
 const TeacherSelection = ( {chooseTeacher} ) => {
     
