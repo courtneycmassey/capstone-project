@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import TeacherSelection from './teacherSelection';
-import { teacherNames } from '../utilities/firebase';
+import { teacherNames, usersCollection } from '../utilities/firebase';
+import { AuthContext } from '../Auth';
 
 const ClassForm = () => {
     
+    const {currentUser, userDetails} = useContext(AuthContext);
     const [selectedTeacher, setSelectedTeacher] = useState('')
     const [courseTitle, setCourseTitle] = useState('')
     const [courseSection, setCourseSection] = useState('')
@@ -21,10 +23,11 @@ const ClassForm = () => {
         const splitDate = courseDate.split("-");
         const formattedDate = new Date( splitDate[0], splitDate[1] - 1, splitDate[2]);
 
-        teacherNames
-        .doc(selectedTeacher)
+        usersCollection
+        .doc(currentUser.uid)
         .collection('classes')
-        .add({
+        .doc()
+        .set({
             course: courseTitle,
             section: courseSection,
             date: formattedDate
@@ -42,8 +45,8 @@ const ClassForm = () => {
             <h1>Manage Courses</h1>
             <hr/>
             <h2>Add Course</h2>
-            <TeacherSelection 
-                chooseTeacher={chooseTeacher}/>
+            {/* <TeacherSelection 
+                chooseTeacher={chooseTeacher}/> */}
             <form onSubmit={addCourse}>
                 <div>
                     <label>Course Title:</label>

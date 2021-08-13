@@ -6,7 +6,7 @@ import { AuthContext } from './Auth';
 
 const TeacherApp = () => {
 
-    const {userDetails} = useContext(AuthContext);
+    const {currentUser, userDetails} = useContext(AuthContext);
 
     const [selectedTeacher, setSelectedTeacher] = useState('')
     const [selectedClass, setSelectedClass] = useState('')
@@ -25,14 +25,16 @@ const TeacherApp = () => {
                 <h2>
                     Teacher View
                 </h2>
+                <p>selected teacher is: {userDetails.first_name}</p>
+                <p>userDetails.uid is: {currentUser.uid}</p>
                 <hr/>
-                <TeacherSelection 
+                {/* <TeacherSelection 
                     chooseTeacher={chooseTeacher}
                     selectedTeacher={selectedTeacher}
-                />
+                /> */}
                 <CourseSelection
                     chooseClass={chooseClass} 
-                    selectedTeacher={selectedTeacher}   
+                    selectedTeacher={currentUser.uid}   
                 />
                 <hr/>
                 <TeacherView
