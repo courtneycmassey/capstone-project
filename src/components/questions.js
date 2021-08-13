@@ -68,10 +68,9 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
-                        <th>question</th>
-                        <th>answered (T/F)</th>
-                        <th>votes</th>
-                        <th>upvote button</th>
+                        <th>QUESTION</th>
+                        <th>VOTES</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -80,7 +79,6 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                             return(
                                 <tr key={question.id}>
                                     <th>{question.question}</th> 
-                                    <th>{question.was_answered.toString()}</th>
                                     <th>{question.votes}</th>
                                     <th>
                                         <button 
@@ -98,8 +96,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
-                        <th>question</th>
-                        <th>answered (T/F)</th>
+                        <th>QUESTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -108,7 +105,6 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                             return(
                                 <tr key={question.id}>
                                     <th>{question.question}</th> 
-                                    <th>{question.was_answered.toString()}</th>
                                 </tr>
                             )}
                     })}

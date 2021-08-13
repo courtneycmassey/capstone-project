@@ -24,7 +24,7 @@ const StudentApp = () => {
         return (
             <div>
                 <h2>
-                    Student View
+                    Question Board
                 </h2>
                 <hr/>
                 <TeacherSelection 
