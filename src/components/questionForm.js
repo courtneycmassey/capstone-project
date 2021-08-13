@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-
-import { teacherNames } from '../utilities/firebase';
+import React, { useState, useContext } from 'react';
+import { usersCollection } from '../utilities/firebase';
+import { AuthContext } from '../Auth';
 
 const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
     
+    const {currentUser, userDetails} = useContext(AuthContext);
     const [question, setQuestion] = useState('')
     const [studentName, setStudentName] = useState('')
 
     function onSubmit(e) {
         e.preventDefault()
 
-        teacherNames
+        usersCollection
         .doc(selectedTeacher)
         .collection('classes')
         .doc(selectedClass)
@@ -20,9 +21,10 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
             question,
             was_answered: false,
             votes: 0,
-            //TO DO: link student name to authenticated user
-            student_name: studentName,
-            submit_time: new Date()
+            student_name: userDetails.first_name + ' ' + userDetails.last_name,
+            submit_time: new Date(),
+            // not currently in use, but could be useful for future features
+            // student_id: currentUser.uid
         })
         .then(() => {
             setQuestion('')
@@ -42,13 +44,13 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
 
             </div>
             {/* TO DO: remove this field and auto link name of signed in student to question */}
-            <div>
+            {/* <div>
                 <label>Student Name:</label>
                 <input 
                     type="text" 
                     value={studentName} 
                     onChange={e => setStudentName(e.currentTarget.value)} />
-            </div>
+            </div> */}
             <button type="submit" className="btn btn-primary">Submit Question</button>
         </form>
     );

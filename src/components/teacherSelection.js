@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { teacherNames } from '../utilities/firebase';
+import { usersCollection } from '../utilities/firebase';
 import "./teacherSelection.css"
 
 
@@ -7,18 +7,22 @@ function useTeachers() {
     const [teachers, setTeachers] = useState([])
 
     useEffect( () => {
-        teacherNames.onSnapshot((snapshot) => {
-            const newTeachers = snapshot.docs.map((doc) => ({
+
+        usersCollection
+        .where('user_type', '==', 'teacher')
+        .get()
+        .then(querySnapshot => {
+            console.log('Total users: ', querySnapshot.size);
+            const newTeachers = querySnapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data()
-            }))
-
-        setTeachers(newTeachers)
-    })
+            }));
+            setTeachers(newTeachers);
+        });    
     }, [])
-
     return teachers
-}
+};
+
 
 const TeacherSelection = ( {chooseTeacher} ) => {
     
@@ -31,7 +35,7 @@ const TeacherSelection = ( {chooseTeacher} ) => {
                 <option value=""></option>
                 {teachers.map((teacher) => 
                 <option key={teacher.id} value={teacher.id}>
-                    {teacher.teacher_name}
+                    {teacher.last_name + ', ' + teacher.first_name}
                 </option>
                 )}
             </select>

@@ -6,14 +6,9 @@ import { AuthContext } from './Auth';
 
 const TeacherApp = () => {
 
-    const {userDetails} = useContext(AuthContext);
+    const {currentUser, userDetails} = useContext(AuthContext);
 
-    const [selectedTeacher, setSelectedTeacher] = useState('')
     const [selectedClass, setSelectedClass] = useState('')
-
-    const chooseTeacher = (teacher_id) => {
-        setSelectedTeacher(teacher_id);
-    };
 
     const chooseClass = (class_id) => {
         setSelectedClass(class_id);
@@ -22,21 +17,16 @@ const TeacherApp = () => {
     if (userDetails.user_type === 'teacher') {
         return (
             <div>
-                <h2>
-                    Teacher View
-                </h2>
+                <h2>{userDetails.first_name + ' ' + userDetails.last_name}'s Question Board</h2>
                 <hr/>
-                <TeacherSelection 
-                    chooseTeacher={chooseTeacher}
-                    selectedTeacher={selectedTeacher}
-                />
+
                 <CourseSelection
                     chooseClass={chooseClass} 
-                    selectedTeacher={selectedTeacher}   
+                    selectedTeacher={currentUser.uid}   
                 />
                 <hr/>
                 <TeacherView
-                    selectedTeacher={selectedTeacher}
+                    selectedTeacher={currentUser.uid}
                     selectedClass={selectedClass}/>
                 <hr/>
             </div>

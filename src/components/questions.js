@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { teacherNames } from '../utilities/firebase';
+import { teacherNames, usersCollection } from '../utilities/firebase';
 
 const SORT_OPTIONS = {
     'TIME_ASC': {column: 'submit_time', direction: 'asc'},
@@ -14,7 +14,7 @@ function useQuestions(selectedTeacher, selectedClass, sortBy='VOTES_DESC') {
     useEffect ( () => {
         // TO DO: understand unsubscribe callback (from 19:30 and 20:30 in Time Tutorial)
         if (selectedTeacher !== '' && selectedClass !== '') {
-            const unsubscribe = teacherNames
+            const unsubscribe = usersCollection
             .doc(selectedTeacher)
             .collection('classes')
             .doc(selectedClass)
@@ -43,7 +43,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
 
     const addVote = (selectedQuestion, voteCount) => {
         
-        teacherNames
+        usersCollection
             .doc(selectedTeacher)
             .collection('classes')
             .doc(selectedClass)
@@ -68,10 +68,9 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
-                        <th>question</th>
-                        <th>answered (T/F)</th>
-                        <th>votes</th>
-                        <th>upvote button</th>
+                        <th>QUESTION</th>
+                        <th>VOTES</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -80,7 +79,6 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                             return(
                                 <tr key={question.id}>
                                     <th>{question.question}</th> 
-                                    <th>{question.was_answered.toString()}</th>
                                     <th>{question.votes}</th>
                                     <th>
                                         <button 
@@ -98,8 +96,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
             <table className="table table-dark table-hover">
                 <thead>
                     <tr>
-                        <th>question</th>
-                        <th>answered (T/F)</th>
+                        <th>QUESTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -108,7 +105,6 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                             return(
                                 <tr key={question.id}>
                                     <th>{question.question}</th> 
-                                    <th>{question.was_answered.toString()}</th>
                                 </tr>
                             )}
                     })}

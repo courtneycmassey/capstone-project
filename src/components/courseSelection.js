@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { teacherNames } from '../utilities/firebase';
+import { usersCollection } from '../utilities/firebase';
 
 
 function useClasses(selectedTeacher) {
@@ -10,7 +10,7 @@ function useClasses(selectedTeacher) {
     useEffect ( () => {
         if (selectedTeacher !== '') {
             
-            teacherNames
+            usersCollection
             .doc(selectedTeacher)
             .collection('classes')
             .onSnapshot((snapshot) => {
