@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { teacherNames } from '../utilities/firebase';
+import { teacherNames, usersCollection } from '../utilities/firebase';
 
 const SORT_OPTIONS = {
     'TIME_ASC': {column: 'submit_time', direction: 'asc'},
@@ -14,7 +14,7 @@ function useQuestions(selectedTeacher, selectedClass, sortBy='VOTES_DESC') {
     useEffect ( () => {
         // TO DO: understand unsubscribe
         if (selectedTeacher !== '' && selectedClass !== '') {
-            const unsubscribe = teacherNames
+            const unsubscribe = usersCollection
             .doc(selectedTeacher)
             .collection('classes')
             .doc(selectedClass)
@@ -43,7 +43,7 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
 
     const markAnswered = (selectedQuestion) => {
         
-        teacherNames
+        usersCollection
             .doc(selectedTeacher)
             .collection('classes')
             .doc(selectedClass)
@@ -56,7 +56,7 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
 
     const deleteQuestion = (selectedQuestion) => {
 
-        teacherNames
+        usersCollection
             .doc(selectedTeacher)
             .collection('classes')
             .doc(selectedClass)

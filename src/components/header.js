@@ -35,10 +35,10 @@ const Header = () => {
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/class_form">Add Class</Link>
+                                <Link className="nav-link" to="/class_form">Manage Courses</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/teacher_view">Teacher View</Link>
+                                <Link className="nav-link" to="/teacher_view">Question Board</Link>
                             </li>
                         </ul>
                     </div>
