@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { teacherNames } from '../utilities/firebase';
+import { teacherNames, usersCollection } from '../utilities/firebase';
 
 const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
     
@@ -10,7 +10,7 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
     function onSubmit(e) {
         e.preventDefault()
 
-        teacherNames
+        usersCollection
         .doc(selectedTeacher)
         .collection('classes')
         .doc(selectedClass)
