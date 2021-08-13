@@ -4,9 +4,8 @@ import { AuthContext } from '../Auth';
 
 const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
     
-    const {currentUser, userDetails} = useContext(AuthContext);
+    const { userDetails } = useContext(AuthContext);
     const [question, setQuestion] = useState('')
-    const [studentName, setStudentName] = useState('')
 
     function onSubmit(e) {
         e.preventDefault()
@@ -28,7 +27,6 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
         })
         .then(() => {
             setQuestion('')
-            setStudentName('')
         })
     }
     
@@ -43,14 +41,6 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
                     onChange={e => setQuestion(e.currentTarget.value)} />
 
             </div>
-            {/* TO DO: remove this field and auto link name of signed in student to question */}
-            {/* <div>
-                <label>Student Name:</label>
-                <input 
-                    type="text" 
-                    value={studentName} 
-                    onChange={e => setStudentName(e.currentTarget.value)} />
-            </div> */}
             <button type="submit" className="btn btn-primary">Submit Question</button>
         </form>
     );

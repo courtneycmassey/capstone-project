@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { teacherNames, usersCollection } from '../utilities/firebase';
+import { usersCollection } from '../utilities/firebase';
 
 const SORT_OPTIONS = {
     'TIME_ASC': {column: 'submit_time', direction: 'asc'},

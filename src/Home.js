@@ -1,26 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import app from './utilities/firebase';
 import { AuthContext } from './Auth';
-import firebase, { usersCollection } from './utilities/firebase';
 
 
 const Home = () => {
 
     const {currentUser, userDetails} = useContext(AuthContext);
 
-    // const [userDetails, setUserDetails] = useState('')
-
-    // useEffect(() => {
-    //     usersCollection
-    //     .doc(currentUser.uid)
-    //     .get()
-    //     .then(snapshot => {
-    //         setUserDetails(snapshot.data())
-    //         console.log('Home Component Mounted');
-    //         console.log(currentUser);
-    //     })
-    // }, [currentUser]);
-    
 
     return (
         <div>

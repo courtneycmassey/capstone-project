@@ -2,7 +2,7 @@ import Questions from './components/questions';
 import TeacherSelection from './components/teacherSelection';
 import CourseSelection from './components/courseSelection';
 import QuestionForm from './components/questionForm';
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { AuthContext } from './Auth';
 
 const StudentApp = () => {

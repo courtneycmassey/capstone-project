@@ -1,11 +1,8 @@
-//TO DO: rename this App.js???
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
 
-// import components
 import Home from './Home';
 import Header from './components/header';
 import Footer from './components/footer';

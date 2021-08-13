@@ -1,19 +1,14 @@
 import React, { useState, useContext } from 'react';
-import TeacherSelection from './teacherSelection';
-import { teacherNames, usersCollection } from '../utilities/firebase';
+import { usersCollection } from '../utilities/firebase';
 import { AuthContext } from '../Auth';
 
 const ClassForm = () => {
     
     const {currentUser, userDetails} = useContext(AuthContext);
-    const [selectedTeacher, setSelectedTeacher] = useState('')
     const [courseTitle, setCourseTitle] = useState('')
     const [courseSection, setCourseSection] = useState('')
     const [courseDate, setCourseDate] = useState('')
 
-    const chooseTeacher = (teacher_id) => {
-        setSelectedTeacher(teacher_id);
-    };
 
     //TO DO: need a way to add a colleciton called 'questions' when a class is added
     // const addQuestionsCollection
@@ -45,8 +40,6 @@ const ClassForm = () => {
             <h1>Manage Courses</h1>
             <hr/>
             <h2>Add Course</h2>
-            {/* <TeacherSelection 
-                chooseTeacher={chooseTeacher}/> */}
             <form onSubmit={addCourse}>
                 <div>
                     <label>Course Title:</label>
