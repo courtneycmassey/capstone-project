@@ -65,8 +65,8 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                     <option value="TIME_ASC">Oldest Question First</option>
                 </select>
             </div>
-            <table className="table table-dark table-hover">
-                <thead>
+            <table className="table table-light table-hover">
+                <thead className="thead-dark">
                     <tr>
                         <th>QUESTION</th>
                         <th>VOTES</th>

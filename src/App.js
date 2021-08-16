@@ -26,14 +26,14 @@ const App = () => {
                             <hr/>
                             <Signup/>
                         </Route>
-                        {/* <Route exact path="/login" component={Login}/>
-                        <Route exact path="/signup" component={Signup}/> */}
+                        <Route exact path="/login" component={Login}/>
+                        <Route exact path="/signup" component={Signup}/>
                         <Route exact path="/class_form" component={ClassForm}/>
                         <Route exact path="/teacher_view" component={TeacherApp}/>
                         <Route exact path="/student_view" component={StudentApp}/>
                     </Switch>
                 </main>
-                <Footer/>
+                {/* <Footer/> */}
             </Router>
         </AuthProvider>
     );
