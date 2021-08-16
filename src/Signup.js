@@ -6,6 +6,8 @@ const SignUp = ({ history }) => {
 
     const storeUserInfo = (data, email, password, firstName, lastName, userType) => {
 
+        console.log(userType)
+
         usersCollection
         .doc(data.user.uid)
         .set({
@@ -18,14 +20,20 @@ const SignUp = ({ history }) => {
     }
 
     const handleSignUp = useCallback(async event => {
+
+        // console.log(userType)
+        // console.log(event.target.elements)
+        // console.log(event.target.elements["user-type"].value)
         event.preventDefault();
-        const { userType, firstName, lastName, email, password } = event.target.elements;
+        const { firstName, lastName, email, password } = event.target.elements;
+        const userType = event.target.elements["user-type"].value;
+
         try {
             await app
                 .auth()
                 .createUserWithEmailAndPassword(email.value, password.value)
                 .then( (data) => {
-                    storeUserInfo(data, email.value, password.value, firstName.value, lastName.value, userType.value);
+                    storeUserInfo(data, email.value, password.value, firstName.value, lastName.value, userType);
                 }
                 );
             history.push("/");
@@ -41,10 +49,11 @@ const SignUp = ({ history }) => {
             <form onSubmit={handleSignUp}>
             <label>
                 User Type:
-                <input 
-                    name="userType" 
-                    type="text" 
-                    placeholder="student or teacher" />
+                <select name='user-type' id="user-type">
+                    <option></option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
             </label>
             <label>
                 First Name:
