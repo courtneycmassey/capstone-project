@@ -1,0 +1,22 @@
+h1 {
+    font-weight: bold;
+}
+
+.signed-in-user {
+    font-size: 0.75rem;
+    text-align: right;
+}
+
+.container ul {
+    padding-left: 5%;
+}
+
+.container img {
+    float: right;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+p {
+    margin-bottom: 4px;
+}
