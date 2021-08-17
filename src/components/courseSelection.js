@@ -33,7 +33,7 @@ const CourseSelection = ( { chooseClass, selectedTeacher } ) => {
 
     return (
         <div>
-            <label>Select Course:</label>
+            <label>&emsp;Select Course:&nbsp;</label>
             <select onChange={e => chooseClass(e.currentTarget.value)}>
                 <option value=""></option>
                 {courses.map((course) => 

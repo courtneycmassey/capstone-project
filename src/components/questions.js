@@ -58,14 +58,14 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
         <div>
             <h3>Current Questions:</h3>
             <div>
-                <label>Sort By:</label>{' '}
+                <label>&emsp;Sort By:</label>{' '}
                 <select value={sortBy} onChange={e => setSortBy(e.currentTarget.value)}>
                     <option value="VOTES_DESC">Votes</option>
                     <option value="TIME_DESC">Newest Question First</option>
                     <option value="TIME_ASC">Oldest Question First</option>
                 </select>
             </div>
-            <table className="table table-light table-hover">
+            <table className="table table-light table-hover table-striped">
                 <thead className="thead-dark">
                     <tr>
                         <th>QUESTION</th>
@@ -78,23 +78,25 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                         if (question.was_answered === false) {
                             return(
                                 <tr key={question.id}>
-                                    <th>{question.question}</th> 
-                                    <th>{question.votes}</th>
-                                    <th>
+                                    <td>{question.question}</td> 
+                                    <td>{question.votes}</td>
+                                    <td>
                                         <button 
                                             key={question.id}
                                             onClick={() => {addVote(question.id, question.votes)}}
-                                            className="btn btn-success">
+                                            className="btn btn-success"
+                                            id="upvote-button">
                                                 Upvote
-                                        </button></th>
+                                        </button></td>
                                 </tr>
                             )}
                     })}
                 </tbody>
             </table>
+            <hr/>
             <h3>Answered Questions:</h3>
-            <table className="table table-dark table-hover">
-                <thead>
+            <table className="table table-light table-hover table-striped">
+                <thead className="thead-dark">
                     <tr>
                         <th>QUESTION</th>
                     </tr>
@@ -104,7 +106,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                         if (question.was_answered === true) {
                             return(
                                 <tr key={question.id}>
-                                    <th>{question.question}</th> 
+                                    <td>{question.question}</td> 
                                 </tr>
                             )}
                     })}

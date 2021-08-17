@@ -37,22 +37,18 @@ const Login = ({ history }) => {
                             <h4>A question board for modern classrooms.</h4>
                             <h6>Anonymous for students.</h6>
                             <h6>Detailed for teachers.</h6>
-
                         </div>
                         <div className="col-5">
                             <img src="hand_raised.svg" alt="Hand Raised"></img>
                         </div> 
                         <div className="col">
-                            {/* <h5>Log in:</h5> */}
                             <form onSubmit={handleLogin}>
                                 <label>
-                                    email:
                                     <input name="email" type="email" placeholder="email" />
                                 </label>
                                 <label>
-                                    password:
                                     <input name="password" type="password" placeholder="password" />
-                                </label>
+                                </label><br/>
                                 <button className="btn btn-success" type="submit">Log in</button>
                             </form>
                             <br/>

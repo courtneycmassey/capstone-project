@@ -32,16 +32,16 @@ const QuestionForm = ( {selectedTeacher, selectedClass} ) => {
     
     return (
         <form onSubmit={onSubmit}>
-            <h3>Ask a Question</h3>
+            <h3>Ask a Question:</h3>
             <div>
-                <label>Question:</label>
-                <input 
+                <label>&emsp;Question:&nbsp;</label>
+                <input id="question-form"
                     type="text" 
                     value={question} 
                     onChange={e => setQuestion(e.currentTarget.value)} />
 
             </div>
-            <button type="submit" className="btn btn-primary">Submit Question</button>
+            <button type="submit" className="btn btn-primary" id="question-button">Submit Question</button>
         </form>
     );
 };

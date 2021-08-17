@@ -27,8 +27,6 @@ const Home = () => {
                             <ul>
                                 <li>View the Question Board for a class</li>
                                 <li>Anonymously post a question to a Question Board</li>
-                                {/* <li>Your question will be anonymous to your classmates, 
-                                    but your teacher will know you asked it.</li> */}
                                 <li>Upvote a question so it grabs your teacher's attention</li>
                             </ul> 
                             <p></p> 
