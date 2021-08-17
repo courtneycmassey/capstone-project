@@ -7,10 +7,25 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* h3 {
+h1 {
     font-weight: bold;
+    font-size: 65px;
+    text-align: center;
 }
 
 p {
     font-size: 0.75rem;
+}
+
+/* ul li {
+    list-style-type: square;
+} */
+
+/* #form {
+    display: block;
+    font-size:11px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    width:70px;
+    margin:2px 0 20px 10px;
 } */

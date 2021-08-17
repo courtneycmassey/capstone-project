@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from './utilities/firebase.js';
 import { AuthContext } from './Auth';
+import { Link } from 'react-router-dom';
 
 const Login = ({ history }) => {
     const handleLogin = useCallback(
@@ -28,18 +29,40 @@ const Login = ({ history }) => {
 
     return (
         <div>
-            <h1>Log in</h1>
-            <form onSubmit={handleLogin}>
-                <label>
-                    Email:
-                    <input name="email" type="email" placeholder="Email" />
-                </label>
-                <label>
-                    Password:
-                    <input name="password" type="password" placeholder="Password" />
-                </label>
-                <button className="btn btn-success" type="submit">Log in</button>
-            </form>
+            <h1>Raise a Question</h1>
+
+            <div className="container">
+                    <div className="row"> 
+                        <div className="col-4"> 
+                            <h4>A question board for modern classrooms.</h4>
+                            <h6>Anonymous for students.</h6>
+                            <h6>Detailed for teachers.</h6>
+
+                        </div>
+                        <div className="col-5">
+                            <img src="hand_raised.svg" alt="Hand Raised"></img>
+                        </div> 
+                        <div className="col">
+                            {/* <h5>Log in:</h5> */}
+                            <form onSubmit={handleLogin}>
+                                <label>
+                                    email:
+                                    <input name="email" type="email" placeholder="email" />
+                                </label>
+                                <label>
+                                    password:
+                                    <input name="password" type="password" placeholder="password" />
+                                </label>
+                                <button className="btn btn-success" type="submit">Log in</button>
+                            </form>
+                            <br/>
+                            <h6>Need an account?</h6>
+                                <form action="/signup">
+                                    <button className="btn btn-info" type="submit">Signup</button>
+                                </form>
+                        </div>
+                    </div>
+                </div>
         </div>
     );
 };

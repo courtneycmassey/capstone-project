@@ -22,7 +22,7 @@ const Home = () => {
                             <img src="hand_raised.svg" alt="Hand Raised"></img>
                         </div> 
                         <div className="col-8"> 
-                            <h1>Welcome, {userDetails.first_name}!</h1>
+                            <h2>Welcome, {userDetails.first_name}!</h2>
                             <h5>As a {userDetails.user_type} you can:</h5>
                             <ul>
                                 <li>View the Question Board for a class</li>
@@ -52,7 +52,7 @@ const Home = () => {
                             <img src="hand_raised.svg" alt="Hand Raised"></img>
                         </div> 
                         <div className="col-8"> 
-                            <h1>Welcome, {userDetails.first_name}!</h1>
+                            <h2>Welcome, {userDetails.first_name}!</h2>
                             <h5>As a {userDetails.user_type} you can:</h5>
                             <ul>
                                 <li>Add class sessions to your course collection</li>
