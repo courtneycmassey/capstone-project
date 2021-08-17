@@ -84,6 +84,7 @@ p {
     width: 100%;
     color: #5a5a5a;
     text-align: center;
+    position: fixed;
 }
 
 #login-section {
