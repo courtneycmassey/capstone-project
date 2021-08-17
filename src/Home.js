@@ -36,6 +36,7 @@ const Home = () => {
                 </div>
                 <div class="footer">
                     <p>© 2021 Courtney Massey</p>
+                    <p>image by <a href="https://undraw.co/">undraw.co</a></p>
                 </div>
             </div>
         );
@@ -71,6 +72,7 @@ const Home = () => {
                 </div>
                 <div class="footer">
                     <p>© 2021 Courtney Massey</p>
+                    <p>image by <a href="https://undraw.co/">undraw.co</a></p>
                 </div>
             </div>
         );
