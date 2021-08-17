@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { usersCollection } from '../utilities/firebase';
 import { AuthContext } from '../Auth';
+import '../index.css'
 
 const ClassForm = () => {
     
@@ -37,40 +38,50 @@ const ClassForm = () => {
         
     return (
         <div>
-            <h1>Manage Courses</h1>
+            <div className="container" id="selection-container">
+                <div className="row">
+                    <div className="col">
+                        <h2 id="board-title">Manage Courses</h2>
+                        <h4>&emsp;for {userDetails.first_name + ' ' + userDetails.last_name}</h4>
+                    </div>
+                    <div className="col-3">
+                        <img src="hand_raised.svg" alt="Hand Raised"></img>
+                    </div>
+                </div>
+            </div>
             <hr/>
-            <h2>Add Course</h2>
+            <h3>Add a class to your course collection</h3>
             <form onSubmit={addCourse}>
                 <div>
-                    <label>Course Title:</label>
-                    <input 
+                    <label>&emsp;Course Title:&nbsp;</label>
+                    <input class="course-input"
                         type="text"
-                        placeholder="Course Title"
+                        // placeholder="Course Title"
                         value={courseTitle}
                         onChange={e => setCourseTitle(e.currentTarget.value)} />
                 </div>
                 <div>
-                    <label>Course Section:</label>
-                    <input 
+                    <label>&emsp;Course Section:&nbsp;</label>
+                    <input class="section-input"
                         type="text"
-                        placeholder="Course Section"
+                        // placeholder="Course Section"
                         value={courseSection}
                         onChange={e => setCourseSection(e.currentTarget.value)} />
                 </div>
                 <div>
-                    <label>Date:</label>
+                    <label>&emsp;Date:&nbsp;</label>
                     <input
                         type="date"
                         value={courseDate}
                         onChange={e => setCourseDate(e.currentTarget.value)} />
                 </div>
-                <button type="submit" className="btn btn-primary">Add Class</button>
+                <button type="submit" className="btn btn-primary" id="purple-button">Add Class</button>
             </form>
             <hr/>
-            <h2>Delete Course</h2>
+            {/* <h3>Delete a class from your course collection</h3>
             <hr/>
             <h2>Clear a Question Board</h2>
-            <hr/>
+            <hr/> */}
         </div>
     );
 };

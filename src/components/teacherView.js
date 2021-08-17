@@ -69,19 +69,19 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
         <div>
             <h3>Current Questions:</h3>
             <div>
-                <label>Sort By:</label>{' '}
+                <label>&emsp;Sort By:</label>{' '}
                 <select value={sortBy} onChange={e => setSortBy(e.currentTarget.value)}>
                     <option value="VOTES_DESC">Votes</option>
                     <option value="TIME_DESC">Newest Question First</option>
                     <option value="TIME_ASC">Oldest Question First</option>
                 </select>
             </div>
-            <table className="table table-dark table-hover">
-                <thead>
+            <table className="table table-light table-hover table-striped">
+                <thead className="thead-dark">
                     <tr>
                         <th>QUESTION</th>
                         <th>STUDENT</th>
-                        <th>VOTES</th>
+                        <th className="text-center">VOTES</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -91,31 +91,33 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
                         if (question.was_answered === false) {
                             return(
                                 <tr key={question.id}>
-                                    <th>{question.question}</th> 
-                                    <th>{question.student_name}</th>
-                                    <th>{question.votes}</th>
-                                    <th>
+                                    <td>{question.question}</td> 
+                                    <td>{question.student_name}</td>
+                                    <td className="text-center">{question.votes}</td>
+                                    <td>
                                         <button 
+                                            id="answered-button"
                                             key={question.id}
                                             onClick={() => {markAnswered(question.id)}}
                                             className="btn btn-success">
                                                 Answered
-                                        </button></th>
-                                    <th>
+                                        </button></td>
+                                    <td>
                                         <button
+                                            id="trash-button"
                                             key={question.id}
                                             onClick={() => {deleteQuestion(question.id)}}
-                                            className="btn btn-danger"> 🗑
-
-                                        </button></th>
+                                            className="btn btn-danger"> 🚮
+                                        </button></td>
                                 </tr>
                             )}
                     })}
                 </tbody>
             </table>
+            <hr/>
             <h3>Answered Questions:</h3>
-            <table className="table table-dark table-hover">
-                <thead>
+            <table className="table table-light table-hover table-striped">
+                <thead className="thead-dark">
                     <tr>
                         <th>QUESTION</th>
                     </tr>
@@ -125,7 +127,7 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
                         if (question.was_answered === true) {
                             return(
                                 <tr key={question.id}>
-                                    <th>{question.question}</th> 
+                                    <td>{question.question}</td> 
                                 </tr>
                             )}
                     })}

@@ -4,6 +4,7 @@ import CourseSelection from './components/courseSelection';
 import QuestionForm from './components/questionForm';
 import React, { useState, useContext } from "react";
 import { AuthContext } from './Auth';
+import './index.css'
 
 const StudentApp = () => {
 
@@ -23,18 +24,23 @@ const StudentApp = () => {
     if (userDetails.user_type === 'student') {
         return (
             <div>
-                <h2>
-                    Question Board
-                </h2>
-                <hr/>
-                <TeacherSelection 
-                    chooseTeacher={chooseTeacher}
-                />
-                <CourseSelection
-                    chooseClass={chooseClass} 
-                    selectedTeacher={selectedTeacher}   
-                />
-                <hr/>
+                <div className="container" id="selection-container">
+                    <div className="row">
+                        <div className="col">
+                            <h2 id="board-title">Question Board</h2>
+                            <TeacherSelection 
+                                chooseTeacher={chooseTeacher}
+                            />
+                            <CourseSelection
+                                chooseClass={chooseClass} 
+                                selectedTeacher={selectedTeacher}   
+                            />
+                        </div>
+                        <div className="col-3">
+                            <img src="hand_raised.svg" alt="Hand Raised"></img>
+                        </div>
+                    </div>
+                </div>
                 <Questions
                     selectedTeacher={selectedTeacher}
                     selectedClass={selectedClass}/>

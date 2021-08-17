@@ -1,0 +1,106 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body {
+    padding-top:4rem;
+} */
+
+h1 {
+    font-weight: bold;
+    font-size: 65px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+p {
+    font-size: 0.75rem;
+}
+
+/* ul li {
+    list-style-type: square;
+} */
+
+/* #form {
+    display: block;
+    font-size:11px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    width:70px;
+    margin:2px 0 20px 10px;
+} */
+
+#question-form {
+    width: 82%;
+    color: #5a5a5a;
+}
+
+#selection-container {
+    height: 20%;
+    padding-left: 0;
+}
+
+#purple-button {
+    background-color: #6c63ff;
+    border-color: #6c63ff;
+    margin-left: 18px;
+}
+
+#purple-button:hover {
+    background-color: #4e47c3;
+    border-color: #4e47c3;
+}
+
+#upvote-button {
+    background-color: #1fa2b8;
+    border-color: #1fa2b8;
+}
+
+.table {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table td {
+    vertical-align: middle;
+    color: #343a40;
+}
+
+#board-title {
+    margin-bottom: 2%;
+}
+
+.course-input {
+    width: 50%;
+}
+.section-input {
+    width: 25%;
+}
+
+#sign-out-button {
+    background-color: #e83e8ce8;
+    border-color: #e83e8ce8;
+}
+
+/* #trash-button {
+    background-color: #e83e8ce8;
+    border-color: #e83e8ce8;
+} */
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #5a5a5a;
+    text-align: center;
+  }

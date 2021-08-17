@@ -45,46 +45,57 @@ const SignUp = ({ history }) => {
 
     return (
         <div>
-            <h1>Sign up</h1>
-            <form onSubmit={handleSignUp}>
-            <label>
-                User Type:
-                <select name='user-type' id="user-type">
-                    <option></option>
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                </select>
-            </label>
-            <label>
-                First Name:
-                <input 
-                    name="firstName" 
-                    type="text" 
-                    placeholder="First Name" />
-            </label>
-            <label>
-                Last Name:
-                <input 
-                    name="lastName" 
-                    type="text" 
-                    placeholder="Last Name" />
-            </label>
-            <label>
-                Email:
-                <input 
-                    name="email" 
-                    type="email" 
-                    placeholder="email" />
-            </label>
-            <label>
-                Password:
-                <input 
-                    name="password" 
-                    type="password" 
-                    placeholder="password" />
-            </label>
-            <button className="btn btn-info" type="submit">Sign Up</button>
-            </form>
+            <h1>Raise a Question</h1>
+            <div className="container">
+                <div className="row">
+                    <div className="col" id="form">
+                        <form onSubmit={handleSignUp}>
+                            <h3>Create an account</h3>
+                            <label>
+                                I am a:&nbsp;
+                                <select name='user-type' id="user-type">
+                                    <option></option>
+                                    <option value="student">Student</option>
+                                    <option value="teacher">Teacher</option>
+                                </select>
+                            </label><br/>
+                            <label>
+                                First Name:&nbsp;
+                                <input 
+                                    name="firstName" 
+                                    type="text" 
+                                 />
+                            </label><br/>
+                            <label>
+                                Last Name:&nbsp;
+                                <input 
+                                    name="lastName" 
+                                    type="text" 
+                                    />
+                            </label><br/>
+                            <label>
+                                Email:&nbsp;
+                                <input 
+                                    name="email" 
+                                    type="email" 
+                                    />
+                            </label><br/>
+                            <label>
+                                Password:&nbsp;
+                                <input 
+                                    name="password" 
+                                    type="password" 
+                                    />
+                            </label><br/>
+                            <button className="btn btn-info" type="submit">Sign Up</button>
+                        </form>
+                    </div>
+                    <div className="col-5">
+                            <img src="hand_raised.svg" alt="Hand Raised"></img>
+                    </div> 
+                </div>
+            </div>
+
         </div>
     );
 };

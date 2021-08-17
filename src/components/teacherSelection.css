@@ -49,3 +49,7 @@
   .dropdown .dropdown-content .dropdown-item:hover {
     background: #f4f4f4;
   }
+
+option {
+    color: purple;
+}

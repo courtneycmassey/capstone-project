@@ -5,7 +5,6 @@ import PrivateRoute from './PrivateRoute';
 
 import Home from './Home';
 import Header from './components/header';
-import Footer from './components/footer';
 import Login from './Login';
 import TeacherApp from './TeacherApp'
 import StudentApp from './StudentApp';
@@ -21,10 +20,8 @@ const App = () => {
                 <main role="main" className="container">
                     <Switch>
                         <PrivateRoute exact path="/" component={Home}/>
-                        <Route exact path="/signin">
+                        <Route exact path="/login">
                             <Login/>
-                            <hr/>
-                            <Signup/>
                         </Route>
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/signup" component={Signup}/>
@@ -33,7 +30,6 @@ const App = () => {
                         <Route exact path="/student_view" component={StudentApp}/>
                     </Switch>
                 </main>
-                {/* <Footer/> */}
             </Router>
         </AuthProvider>
     );

@@ -16,9 +16,17 @@ const TeacherApp = () => {
     if (userDetails.user_type === 'teacher') {
         return (
             <div>
-                <h2>{userDetails.first_name + ' ' + userDetails.last_name}'s Question Board</h2>
-                <hr/>
-
+                <div className="container" id="selection-container">
+                    <div className="row">
+                        <div className="col">
+                            <h2 id="board-title">Question Board</h2>
+                            <h4>&emsp;for {userDetails.first_name + ' ' + userDetails.last_name}</h4>
+                        </div>
+                        <div className="col-3">
+                            <img src="hand_raised.svg" alt="Hand Raised"></img>
+                        </div>
+                    </div>
+                </div>
                 <CourseSelection
                     chooseClass={chooseClass} 
                     selectedTeacher={currentUser.uid}   
