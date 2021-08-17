@@ -12,7 +12,6 @@ function useQuestions(selectedTeacher, selectedClass, sortBy='VOTES_DESC') {
     const [questions, setQuestions] = useState([])
 
     useEffect ( () => {
-        // TO DO: understand unsubscribe callback (from 19:30 and 20:30 in Time Tutorial)
         if (selectedTeacher !== '' && selectedClass !== '') {
             const unsubscribe = usersCollection
             .doc(selectedTeacher)

@@ -10,9 +10,6 @@ const ClassForm = () => {
     const [courseSection, setCourseSection] = useState('')
     const [courseDate, setCourseDate] = useState('')
 
-
-    //TO DO: need a way to add a colleciton called 'questions' when a class is added
-    // const addQuestionsCollection
     function addCourse(e) {
         e.preventDefault()
 
@@ -29,7 +26,6 @@ const ClassForm = () => {
             date: formattedDate
         })
         .then(() => {
-            //can I capture the new course_id here???
             setCourseTitle('')
             setCourseSection('')
             setCourseDate('')
@@ -56,7 +52,6 @@ const ClassForm = () => {
                     <label>&emsp;Course Title:&nbsp;</label>
                     <input class="course-input"
                         type="text"
-                        // placeholder="Course Title"
                         value={courseTitle}
                         onChange={e => setCourseTitle(e.currentTarget.value)} />
                 </div>
@@ -64,7 +59,6 @@ const ClassForm = () => {
                     <label>&emsp;Course Section:&nbsp;</label>
                     <input class="section-input"
                         type="text"
-                        // placeholder="Course Section"
                         value={courseSection}
                         onChange={e => setCourseSection(e.currentTarget.value)} />
                 </div>

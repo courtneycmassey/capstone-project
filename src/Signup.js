@@ -21,9 +21,6 @@ const SignUp = ({ history }) => {
 
     const handleSignUp = useCallback(async event => {
 
-        // console.log(userType)
-        // console.log(event.target.elements)
-        // console.log(event.target.elements["user-type"].value)
         event.preventDefault();
         const { firstName, lastName, email, password } = event.target.elements;
         const userType = event.target.elements["user-type"].value;
@@ -64,14 +61,14 @@ const SignUp = ({ history }) => {
                                 <input 
                                     name="firstName" 
                                     type="text" 
-                                 />
+                                />
                             </label><br/>
                             <label>
                                 Last Name:&nbsp;
                                 <input 
                                     name="lastName" 
                                     type="text" 
-                                    />
+                                />
                             </label><br/>
                             <label>
                                 Email:&nbsp;
