@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Auth';
 import { Link } from 'react-router-dom';
-import './header.css'
 
 const Header = () => {
     
@@ -10,7 +9,7 @@ const Header = () => {
 
     if (userDetails.user_type === 'student') {
         return (
-            <header clasName="header">
+            <header className="header">
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-info">
                     <Link className="navbar-brand" to="/">Raise a Question</Link>
                     <div className="collapse navbar-collapse" id="navbarCollapse">

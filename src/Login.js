@@ -33,15 +33,15 @@ const Login = ({ history }) => {
 
             <div className="container">
                 <div className="row"> 
-                    <div className="col-4"> 
-                        <h4>A question board for modern classrooms.</h4>
-                        <h6>Anonymous for students.</h6>
-                        <h6>Detailed for teachers.</h6>
+                    <div className="col-5" id="site-intro"> 
+                        <h3>A question board for modern classrooms.</h3><br/>
+                        <h5>Anonymous for students.</h5><br/>
+                        <h5>Detailed for teachers.</h5>
                     </div>
                     <div className="col-5">
                         <img src="hand_raised.svg" alt="Hand Raised"></img>
                     </div> 
-                    <div className="col">
+                    <div className="col-2" id="login-section">
                         <form onSubmit={handleLogin}>
                             <label>
                                 <input name="email" type="email" placeholder="email" />
