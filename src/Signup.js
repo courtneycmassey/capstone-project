@@ -64,28 +64,28 @@ const SignUp = ({ history }) => {
                                 <input 
                                     name="firstName" 
                                     type="text" 
-                                    placeholder="First Name" />
+                                 />
                             </label><br/>
                             <label>
                                 Last Name:&nbsp;
                                 <input 
                                     name="lastName" 
                                     type="text" 
-                                    placeholder="Last Name" />
+                                    />
                             </label><br/>
                             <label>
                                 Email:&nbsp;
                                 <input 
                                     name="email" 
                                     type="email" 
-                                    placeholder="email" />
+                                    />
                             </label><br/>
                             <label>
                                 Password:&nbsp;
                                 <input 
                                     name="password" 
                                     type="password" 
-                                    placeholder="password" />
+                                    />
                             </label><br/>
                             <button className="btn btn-info" type="submit">Sign Up</button>
                         </form>

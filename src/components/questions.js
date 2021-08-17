@@ -84,7 +84,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                                         <button 
                                             key={question.id}
                                             onClick={() => {addVote(question.id, question.votes)}}
-                                            className="btn btn-success"
+                                            className="btn btn-danger btn-sm"
                                             id="upvote-button">
                                                 Upvote
                                         </button></td>

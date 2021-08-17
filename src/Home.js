@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import app from './utilities/firebase';
 import { AuthContext } from './Auth';
 import './Home.css'
-import { Container, Row, Col } from 'react-dom';
 
 
 const Home = () => {
@@ -14,7 +13,7 @@ const Home = () => {
             <div>
                 <div className="signed-in-user">
                     <p >You are signed in as {currentUser.email}</p>
-                    <button className="btn btn-danger" onClick={() => app.auth().signOut()}>Sign Out</button>
+                    <button className="btn btn-danger btn-sm" id="sign-out-button" onClick={() => app.auth().signOut()}>Sign Out</button>
                 </div>
                 <div className="container">
                     <div className="row"> 
@@ -35,6 +34,9 @@ const Home = () => {
                         </div> 
                     </div>
                 </div>
+                <div class="footer">
+                    <p>© 2021 Courtney Massey</p>
+                </div>
             </div>
         );
     } else {
@@ -42,8 +44,9 @@ const Home = () => {
             <div>
                 <div className="signed-in-user">
                     <p >You are signed in as {currentUser.email}</p>
-                    <button className="btn btn-danger" onClick={() => app.auth().signOut()}>Sign Out</button>
+                    <button className="btn btn-danger btn-sm" id="sign-out-button" onClick={() => app.auth().signOut()}>Sign Out</button>
                 </div>
+                <br/>
                 <div className="container">
                     <div className="row"> 
                         <div className="col">
@@ -65,6 +68,9 @@ const Home = () => {
                             <p></p>              
                         </div> 
                     </div>
+                </div>
+                <div class="footer">
+                    <p>© 2021 Courtney Massey</p>
                 </div>
             </div>
         );

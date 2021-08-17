@@ -5,7 +5,6 @@ import PrivateRoute from './PrivateRoute';
 
 import Home from './Home';
 import Header from './components/header';
-import Footer from './components/footer';
 import Login from './Login';
 import TeacherApp from './TeacherApp'
 import StudentApp from './StudentApp';
@@ -31,7 +30,6 @@ const App = () => {
                         <Route exact path="/student_view" component={StudentApp}/>
                     </Switch>
                 </main>
-                {/* <Footer/> */}
             </Router>
         </AuthProvider>
     );

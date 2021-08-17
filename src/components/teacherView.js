@@ -96,6 +96,7 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
                                     <td className="text-center">{question.votes}</td>
                                     <td>
                                         <button 
+                                            id="answered-button"
                                             key={question.id}
                                             onClick={() => {markAnswered(question.id)}}
                                             className="btn btn-success">
@@ -103,9 +104,10 @@ const TeacherView = ( {selectedTeacher, selectedClass} ) => {
                                         </button></td>
                                     <td>
                                         <button
+                                            id="trash-button"
                                             key={question.id}
                                             onClick={() => {deleteQuestion(question.id)}}
-                                            className="btn btn-danger"> 🗑
+                                            className="btn btn-danger"> 🚮
                                         </button></td>
                                 </tr>
                             )}

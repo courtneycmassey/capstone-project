@@ -7,6 +7,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* body {
+    padding-top:4rem;
+} */
+
 h1 {
     font-weight: bold;
     font-size: 65px;
@@ -45,10 +49,15 @@ p {
     padding-left: 0;
 }
 
-#question-button {
+#purple-button {
     background-color: #6c63ff;
     border-color: #6c63ff;
     margin-left: 18px;
+}
+
+#purple-button:hover {
+    background-color: #4e47c3;
+    border-color: #4e47c3;
 }
 
 #upvote-button {
@@ -70,3 +79,28 @@ p {
 #board-title {
     margin-bottom: 2%;
 }
+
+.course-input {
+    width: 50%;
+}
+.section-input {
+    width: 25%;
+}
+
+#sign-out-button {
+    background-color: #e83e8ce8;
+    border-color: #e83e8ce8;
+}
+
+/* #trash-button {
+    background-color: #e83e8ce8;
+    border-color: #e83e8ce8;
+} */
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #343a40;
+    text-align: center;
+  }
