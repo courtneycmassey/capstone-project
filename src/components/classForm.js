@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import CourseSelection from './courseSelection';
 import { usersCollection } from '../utilities/firebase';
 import { AuthContext } from '../Auth';
 import '../index.css'
@@ -9,6 +10,11 @@ const ClassForm = () => {
     const [courseTitle, setCourseTitle] = useState('')
     const [courseSection, setCourseSection] = useState('')
     const [courseDate, setCourseDate] = useState('')
+    const [selectedClass, setSelectedClass] = useState('')
+
+    const chooseClass = (class_id) => {
+        setSelectedClass(class_id);
+    }; 
 
     function addCourse(e) {
         e.preventDefault()
@@ -31,6 +37,17 @@ const ClassForm = () => {
             setCourseDate('')
         })
     }
+
+    const deleteClass = (selectedClass) => {
+
+        usersCollection
+            .doc(currentUser.uid)
+            .collection('classes')
+            .doc(selectedClass)
+            .delete()
+
+    }
+
         
     return (
         <div>
@@ -72,10 +89,15 @@ const ClassForm = () => {
                 <button type="submit" className="btn btn-primary" id="purple-button">Add Class</button>
             </form>
             <hr/>
-            {/* <h3>Delete a class from your course collection</h3>
-            <hr/>
-            <h2>Clear a Question Board</h2>
-            <hr/> */}
+                <h3>Delete a class from your course collection</h3>
+                <CourseSelection
+                    chooseClass={chooseClass}
+                    selectedTeacher={currentUser.uid}
+                />
+                <button 
+                    className="btn btn-danger" 
+                    id="delete-course-button" 
+                    onClick={() => {deleteClass(selectedClass)}}>Delete Class</button>
         </div>
     );
 };
