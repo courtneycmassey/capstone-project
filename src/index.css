@@ -23,6 +23,10 @@ p {
     margin-bottom: 2%;
 }
 
+#delete-course-button {
+    margin-left: 18px;
+}
+
 #login-section {
     text-align: right;
 }

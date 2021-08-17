@@ -58,7 +58,7 @@ const Login = ({ history }) => {
                     </div>
                 </div>
             </div>
-            <div class="footer">
+            <div className="footer">
                 <p>© 2021 Courtney Massey</p>
                 <p>image by <a href="https://undraw.co/">undraw.co</a></p>
             </div>
