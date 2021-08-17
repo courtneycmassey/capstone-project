@@ -69,7 +69,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                 <thead className="thead-dark">
                     <tr>
                         <th>QUESTION</th>
-                        <th>VOTES</th>
+                        <th className="text-center">VOTES</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -79,7 +79,7 @@ const Questions = ( {selectedTeacher, selectedClass} ) => {
                             return(
                                 <tr key={question.id}>
                                     <td>{question.question}</td> 
-                                    <td>{question.votes}</td>
+                                    <td className="text-center">{question.votes}</td>
                                     <td>
                                         <button 
                                             key={question.id}

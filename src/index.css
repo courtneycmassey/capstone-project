@@ -62,11 +62,11 @@ p {
     margin-right: auto;
 }
 
-td {
-    vertical-align: center;
+.table td {
+    vertical-align: middle;
     color: #343a40;
 }
 
 #board-title {
-    margin-bottom: 25px;
+    margin-bottom: 2%;
 }
