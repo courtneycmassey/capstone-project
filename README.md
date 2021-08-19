@@ -23,7 +23,7 @@ Teacher users can:
 
 ## Live Demo
 
-[[Live Demo](https://youtu.be/p64cJTd2wSw.jpg)](https://youtu.be/p64cJTd2wSw)
+[Live Demo](https://youtu.be/p64cJTd2wSw)
 
 ## Installation
 
